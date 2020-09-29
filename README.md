@@ -10,6 +10,8 @@
 
 Uploading a large amount of data
 
+## sample input
+
 ```python
 input = [
     {'ib_brcode': '1023',
@@ -50,4 +52,19 @@ print(f'it took {dt.seconds} s')
     data is saved to s3, invoking ingestion function
     input to lambda is {'inputBucketName': 'input-bucket-dev-manual', 'inputKeyName': 'input-data-name'}
     it took 1 s
+
+
+## Query single product
+
+```python
+sdk = InventorySdk(user=USER, pw=PW)
+result = sdk.querySingleProduct(ib_prcode = '84621')
+result
+```
+
+
+
+
+    b'{"statusCode": 200, "inventory": "{\\"1023\\": {\\"ib_cf_qty\\": 835, \\"new_ib_bs_stock_cv\\": 839, \\"lastUpdate\\": 1601394614.340882}, \\"lastUpdate\\": 1601394614.340882, \\"ib_prcode\\": \\"84621\\"}"}'
+
 

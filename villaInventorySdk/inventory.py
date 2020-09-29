@@ -167,3 +167,16 @@ class InventorySdk:
     print(f'input to lambda is {input}')
     return self.lambdaClient.invoke(functionName= functionName ,input=input,
                                     invocationType= invocationType )
+  def querySingleProduct(self,
+                         functionName='single-product-query-dev-manual',
+                         ib_prcode= None,
+                         user=None,
+                         pw=None):
+    input = {
+        'ib_prcode': ib_prcode
+    }
+    return self.lambdaClient.invoke(
+        functionName = functionName,
+        input = input
+        )['Payload'].read()
+
