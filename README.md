@@ -23,6 +23,8 @@ input = [
 ]
 ```
 
+## Upload data
+
 ```python
 from villaInventorySdk.inventory import InventorySdk
 from random import randrange
@@ -47,5 +49,5 @@ print(f'it took {dt.seconds} s')
     data was saved to s3
     data is saved to s3, invoking ingestion function
     input to lambda is {'inputBucketName': 'input-bucket-dev-manual', 'inputKeyName': 'input-data-name'}
-    it took 3 s
+    it took 1 s
 
