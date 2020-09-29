@@ -3,6 +3,10 @@
 __all__ = ['S3', 'InventorySdk']
 
 # Cell
+from botocore.config import Config
+import bz2, json, boto3
+
+# Cell
 class S3:
   @staticmethod
   def s3(region = 'ap-southeast-1', user = None, pw = None):
@@ -66,6 +70,7 @@ class S3:
     return 'Contents' in results
 
 # Cell
+import bz2, json, boto3, base64
 class InventorySdk:
   class Lambda:
     '''
