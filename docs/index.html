@@ -157,9 +157,10 @@ it took 1 s
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sdk</span> <span class="o">=</span> <span class="n">InventorySdk</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">USER</span><span class="p">,</span> <span class="n">pw</span><span class="o">=</span><span class="n">PW</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="n">sdk</span> <span class="o">=</span> <span class="n">InventorySdk</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">USER</span><span class="p">,</span> <span class="n">pw</span><span class="o">=</span><span class="n">PW</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">sdk</span><span class="o">.</span><span class="n">querySingleProduct</span><span class="p">(</span><span class="n">ib_prcode</span> <span class="o">=</span> <span class="s1">&#39;84621&#39;</span><span class="p">)</span>
-<span class="n">result</span>
+<span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -174,7 +175,8 @@ it took 1 s
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>b&#39;{&#34;statusCode&#34;: 200, &#34;inventory&#34;: &#34;{\\&#34;1023\\&#34;: {\\&#34;ib_cf_qty\\&#34;: 835, \\&#34;new_ib_bs_stock_cv\\&#34;: 839, \\&#34;lastUpdate\\&#34;: 1601394614.340882}, \\&#34;lastUpdate\\&#34;: 1601394614.340882, \\&#34;ib_prcode\\&#34;: \\&#34;84621\\&#34;}&#34;}&#39;</pre>
+<pre>{&#39;statusCode&#39;: 200,
+ &#39;inventory&#39;: &#39;{&#34;1023&#34;: {&#34;ib_cf_qty&#34;: 835, &#34;new_ib_bs_stock_cv&#34;: 839, &#34;lastUpdate&#34;: 1601394614.340882}, &#34;lastUpdate&#34;: 1601394614.340882, &#34;ib_prcode&#34;: &#34;84621&#34;}&#39;}</pre>
 </div>
 
 </div>

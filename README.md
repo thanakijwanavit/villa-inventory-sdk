@@ -57,14 +57,16 @@ print(f'it took {dt.seconds} s')
 ## Query single product
 
 ```python
+import json
 sdk = InventorySdk(user=USER, pw=PW)
 result = sdk.querySingleProduct(ib_prcode = '84621')
-result
+json.loads(result)
 ```
 
 
 
 
-    b'{"statusCode": 200, "inventory": "{\\"1023\\": {\\"ib_cf_qty\\": 835, \\"new_ib_bs_stock_cv\\": 839, \\"lastUpdate\\": 1601394614.340882}, \\"lastUpdate\\": 1601394614.340882, \\"ib_prcode\\": \\"84621\\"}"}'
+    {'statusCode': 200,
+     'inventory': '{"1023": {"ib_cf_qty": 835, "new_ib_bs_stock_cv": 839, "lastUpdate": 1601394614.340882}, "lastUpdate": 1601394614.340882, "ib_prcode": "84621"}'}
 
 
