@@ -28,30 +28,33 @@ input = [
 ## Upload data
 
 ```python
-from villaInventorySdk.inventory import InventorySdk
-from random import randrange
-import boto3
-from dataclasses import dataclass
-from dataclasses_json import dataclass_json
-from datetime import datetime
-t0 = datetime.now()
-print(f'uploading {len(input)} items')
-sdk = InventorySdk(user=USER, pw=PW)
-result = sdk.updateWithS3(
-    input,
-    inputBucketName= 'input-bucket-dev-manual', 
-    functionName= 'update-inventory-s3-dev-manual',
-    invocationType = 'RequestResponse'
-  )
-dt = datetime.now()-t0
-print(f'it took {dt.seconds} s')
+@timeit
+def upload(input):
+  print(f'uploading {len(input)} items')
+  sdk = InventorySdk(user=USER, pw=PW)
+  return sdk.updateWithS3(
+      input,
+      inputBucketName= inputBucketName, 
+      functionName= functionName,
+      invocationType = invocationType
+    )
+
+json.loads(json.loads(upload(input)['Payload'].read()))
 ```
 
     uploading 2 items
     data was saved to s3
     data is saved to s3, invoking ingestion function
     input to lambda is {'inputBucketName': 'input-bucket-dev-manual', 'inputKeyName': 'input-data-name'}
-    it took 1 s
+    'upload' took 1014.23 ms
+
+
+
+
+
+    {'statusCode': 200,
+     'result': {'success': 2, 'failure': 0, 'failureMessage': [], 'timeTaken': 0}}
+
 
 
 ## Query single product
@@ -60,13 +63,17 @@ print(f'it took {dt.seconds} s')
 import json
 sdk = InventorySdk(user=USER, pw=PW)
 result = sdk.querySingleProduct(ib_prcode = '84621')
-json.loads(result)
+inventory = json.loads(result)['inventory']
+json.loads(inventory)
 ```
 
 
 
 
-    {'statusCode': 200,
-     'inventory': '{"1023": {"ib_cf_qty": 835, "new_ib_bs_stock_cv": 839, "lastUpdate": 1601394614.340882}, "lastUpdate": 1601394614.340882, "ib_prcode": "84621"}'}
+    {'ib_prcode': '84621',
+     '1023': {'ib_cf_qty': 835,
+      'new_ib_bs_stock_cv': 839,
+      'lastUpdate': 1601548526.868942},
+     'lastUpdate': 1601548526.868942}
 
 
