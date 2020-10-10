@@ -2,7 +2,8 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"InventorySdk": "inventory.ipynb"}
+index = {"Endpoints": "inventory.ipynb",
+         "InventorySdk": "inventory.ipynb"}
 
 modules = ["inventory.py"]
 
