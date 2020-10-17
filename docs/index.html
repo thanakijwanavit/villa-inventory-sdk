@@ -68,15 +68,9 @@ nb_path: "index.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">input</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span><span class="s1">&#39;ib_brcode&#39;</span><span class="p">:</span> <span class="s1">&#39;1023&#39;</span><span class="p">,</span>
-     <span class="s1">&#39;ib_cf_qty&#39;</span><span class="p">:</span> <span class="s1">&#39;835&#39;</span><span class="p">,</span>
-     <span class="s1">&#39;ib_prcode&#39;</span><span class="p">:</span> <span class="s1">&#39;84621&#39;</span><span class="p">,</span>
-     <span class="s1">&#39;new_ib_vs_stock_cv&#39;</span><span class="p">:</span> <span class="s1">&#39;839&#39;</span><span class="p">},</span>
-    <span class="p">{</span><span class="s1">&#39;ib_brcode&#39;</span><span class="p">:</span> <span class="s1">&#39;1022&#39;</span><span class="p">,</span>
-     <span class="s1">&#39;ib_cf_qty&#39;</span><span class="p">:</span> <span class="s1">&#39;24&#39;</span><span class="p">,</span>
-     <span class="s1">&#39;ib_prcode&#39;</span><span class="p">:</span> <span class="s1">&#39;12424&#39;</span><span class="p">,</span>
-     <span class="s1">&#39;new_ib_vs_stock_cv&#39;</span><span class="p">:</span> <span class="s1">&#39;21&#39;</span><span class="p">}</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sampleInput</span> <span class="o">=</span> <span class="p">[</span> 
+  <span class="p">{</span><span class="s1">&#39;ib_brcode&#39;</span><span class="p">:</span> <span class="s1">&#39;1023&#39;</span><span class="p">,</span> <span class="s1">&#39;ib_cf_qty&#39;</span><span class="p">:</span> <span class="s1">&#39;835&#39;</span><span class="p">,</span> <span class="s1">&#39;ib_prcode&#39;</span><span class="p">:</span> <span class="s1">&#39;84621&#39;</span><span class="p">,</span> <span class="s1">&#39;new_ib_vs_stock_cv&#39;</span><span class="p">:</span> <span class="s1">&#39;839&#39;</span><span class="p">},</span>
+  <span class="p">{</span><span class="s1">&#39;ib_brcode&#39;</span><span class="p">:</span> <span class="s1">&#39;1022&#39;</span><span class="p">,</span> <span class="s1">&#39;ib_cf_qty&#39;</span><span class="p">:</span> <span class="s1">&#39;24&#39;</span><span class="p">,</span> <span class="s1">&#39;ib_prcode&#39;</span><span class="p">:</span> <span class="s1">&#39;12424&#39;</span><span class="p">,</span> <span class="s1">&#39;new_ib_vs_stock_cv&#39;</span><span class="p">:</span> <span class="s1">&#39;21&#39;</span><span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
 
@@ -93,6 +87,12 @@ nb_path: "index.ipynb"
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="init-sdk">init sdk<a class="anchor-link" href="#init-sdk"> </a></h2>
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -100,18 +100,8 @@ nb_path: "index.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@timeit</span>
-<span class="k">def</span> <span class="nf">upload</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;uploading </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s1"> items&#39;</span><span class="p">)</span>
-  <span class="n">sdk</span> <span class="o">=</span> <span class="n">InventorySdk</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">USER</span><span class="p">,</span> <span class="n">pw</span><span class="o">=</span><span class="n">PW</span><span class="p">)</span>
-  <span class="k">return</span> <span class="n">sdk</span><span class="o">.</span><span class="n">updateWithS3</span><span class="p">(</span>
-      <span class="nb">input</span><span class="p">,</span>
-      <span class="n">inputBucketName</span><span class="o">=</span> <span class="n">inputBucketName</span><span class="p">,</span> 
-      <span class="n">functionName</span><span class="o">=</span> <span class="n">functionName</span><span class="p">,</span>
-      <span class="n">invocationType</span> <span class="o">=</span> <span class="n">invocationType</span>
-    <span class="p">)</span>
-
-<span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">upload</span><span class="p">(</span><span class="nb">input</span><span class="p">)[</span><span class="s1">&#39;Payload&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">read</span><span class="p">()))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="n">sdk</span> <span class="o">=</span> <span class="n">InventorySdk</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">USER</span><span class="p">,</span> <span class="n">pw</span><span class="o">=</span><span class="n">PW</span><span class="p">,</span> <span class="n">branchName</span> <span class="o">=</span> <span class="n">branch</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -124,11 +114,47 @@ nb_path: "index.ipynb"
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>uploading 2 items
-data was saved to s3
-data is saved to s3, invoking ingestion function
-input to lambda is {&#39;inputBucketName&#39;: &#39;input-bucket-dev-manual&#39;, &#39;inputKeyName&#39;: &#39;input-data-name&#39;}
-&#39;upload&#39; took 1014.23 ms
+<pre>CPU times: user 28.5 ms, sys: 12 ms, total: 40.4 ms
+Wall time: 1.05 s
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Update-inventory">Update inventory<a class="anchor-link" href="#Update-inventory"> </a></h2>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="n">sdk</span><span class="o">.</span><span class="n">updateWithS3</span><span class="p">(</span> <span class="n">sampleInput</span> <span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>CPU times: user 48.5 ms, sys: 7.17 ms, total: 55.7 ms
+Wall time: 173 ms
 </pre>
 </div>
 </div>
@@ -138,8 +164,7 @@ input to lambda is {&#39;inputBucketName&#39;: &#39;input-bucket-dev-manual&#39;
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;statusCode&#39;: 200,
- &#39;result&#39;: {&#39;success&#39;: 2, &#39;failure&#39;: 0, &#39;failureMessage&#39;: [], &#39;timeTaken&#39;: 0}}</pre>
+<pre>{&#39;body&#39;: &#39;true&#39;, &#39;statusCode&#39;: 200, &#39;header&#39;: {}}</pre>
 </div>
 
 </div>
@@ -163,11 +188,8 @@ input to lambda is {&#39;inputBucketName&#39;: &#39;input-bucket-dev-manual&#39;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
-<span class="n">sdk</span> <span class="o">=</span> <span class="n">InventorySdk</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">USER</span><span class="p">,</span> <span class="n">pw</span><span class="o">=</span><span class="n">PW</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">sdk</span><span class="o">.</span><span class="n">querySingleProduct</span><span class="p">(</span><span class="n">ib_prcode</span> <span class="o">=</span> <span class="s1">&#39;84621&#39;</span><span class="p">)</span>
-<span class="n">inventory</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">result</span><span class="p">)[</span><span class="s1">&#39;inventory&#39;</span><span class="p">]</span>
-<span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">inventory</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="n">sdk</span><span class="o">.</span><span class="n">querySingleProduct</span><span class="p">(</span><span class="s1">&#39;0000002&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -179,14 +201,146 @@ input to lambda is {&#39;inputBucketName&#39;: &#39;input-bucket-dev-manual&#39;
 
 <div class="output_area">
 
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>CPU times: user 14.4 ms, sys: 0 ns, total: 14.4 ms
+Wall time: 2.05 s
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;ib_prcode&#39;: &#39;84621&#39;,
- &#39;1023&#39;: {&#39;ib_cf_qty&#39;: 835,
-  &#39;new_ib_bs_stock_cv&#39;: 839,
-  &#39;lastUpdate&#39;: 1601548526.868942},
- &#39;lastUpdate&#39;: 1601548526.868942}</pre>
+<pre>{&#39;body&#39;: &#39;{&#34;ib_prcode&#34;:&#34;0000002&#34;,&#34;1000&#34;:{&#34;ib_cf_qty&#34;:35,&#34;new_ib_bs_stock_cv&#34;:33,&#34;lastUpdate&#34;:1600567810.529301},&#34;1001&#34;:{&#34;ib_cf_qty&#34;:32,&#34;new_ib_bs_stock_cv&#34;:30,&#34;lastUpdate&#34;:1600567810.529316},&#34;1002&#34;:{&#34;ib_cf_qty&#34;:34,&#34;new_ib_bs_stock_cv&#34;:30,&#34;lastUpdate&#34;:1600567810.529318},&#34;lastUpdate&#34;:1600567810.529318}&#39;,
+ &#39;statusCode&#39;: 200,
+ &#39;header&#39;: {}}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Query-Branch">Query Branch<a class="anchor-link" href="#Query-Branch"> </a></h2>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">sdk</span><span class="o">.</span><span class="n">queryBranch</span><span class="p">(</span><span class="s1">&#39;1000&#39;</span><span class="p">)</span>
+<span class="c1">#showing the first 2 result</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">items</span><span class="p">()))[:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>CPU times: user 271 ms, sys: 12.6 ms, total: 283 ms
+Wall time: 507 ms
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[(&#39;0000009&#39;,
+  {&#39;ib_cf_qty&#39;: 50,
+   &#39;new_ib_bs_stock_cv&#39;: 27,
+   &#39;lastUpdate&#39;: 1602338504.869655}),
+ (&#39;0000002&#39;,
+  {&#39;ib_cf_qty&#39;: 35,
+   &#39;new_ib_bs_stock_cv&#39;: 33,
+   &#39;lastUpdate&#39;: 1600567810.529301})]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Query-All">Query All<a class="anchor-link" href="#Query-All"> </a></h2>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">sdk</span><span class="o">.</span><span class="n">queryAll</span><span class="p">()</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">items</span><span class="p">()))[:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>CPU times: user 1.63 s, sys: 48.7 ms, total: 1.67 s
+Wall time: 1.96 s
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[(&#39;0000009&#39;,
+  {&#39;ib_prcode&#39;: &#39;0000009&#39;,
+   &#39;1000&#39;: {&#39;ib_cf_qty&#39;: 50,
+    &#39;new_ib_bs_stock_cv&#39;: 27,
+    &#39;lastUpdate&#39;: 1602338504.869655},
+   &#39;lastUpdate&#39;: 1602338504.869655}),
+ (&#39;0000002&#39;,
+  {&#39;ib_prcode&#39;: &#39;0000002&#39;,
+   &#39;1000&#39;: {&#39;ib_cf_qty&#39;: 35,
+    &#39;new_ib_bs_stock_cv&#39;: 33,
+    &#39;lastUpdate&#39;: 1600567810.529301},
+   &#39;1001&#39;: {&#39;ib_cf_qty&#39;: 32,
+    &#39;new_ib_bs_stock_cv&#39;: 30,
+    &#39;lastUpdate&#39;: 1600567810.529316},
+   &#39;1002&#39;: {&#39;ib_cf_qty&#39;: 34,
+    &#39;new_ib_bs_stock_cv&#39;: 30,
+    &#39;lastUpdate&#39;: 1600567810.529318},
+   &#39;lastUpdate&#39;: 1600567810.529318})]</pre>
 </div>
 
 </div>
