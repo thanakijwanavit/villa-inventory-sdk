@@ -1,5 +1,5 @@
 # villaInventorySdk
-> read and write inventory in real time
+
 
 
 ## Install
@@ -8,7 +8,6 @@
 
 ## How to use
 
-[docs](https://thanakijwanavit.github.io/villa-inventory-sdk/)
 Uploading a large amount of data
 
 ## sample input
