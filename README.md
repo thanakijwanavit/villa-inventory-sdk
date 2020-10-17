@@ -28,8 +28,8 @@ sampleInput = [
 sdk = InventorySdk(user=USER, pw=PW, branchName = branch)
 ```
 
-    CPU times: user 5.63 ms, sys: 103 µs, total: 5.73 ms
-    Wall time: 5.38 ms
+    CPU times: user 28.5 ms, sys: 12 ms, total: 40.4 ms
+    Wall time: 1.05 s
 
 
 ## Update inventory 
@@ -39,8 +39,8 @@ sdk = InventorySdk(user=USER, pw=PW, branchName = branch)
 sdk.updateWithS3( sampleInput )
 ```
 
-    CPU times: user 13 ms, sys: 8.05 ms, total: 21.1 ms
-    Wall time: 130 ms
+    CPU times: user 48.5 ms, sys: 7.17 ms, total: 55.7 ms
+    Wall time: 173 ms
 
 
 
@@ -57,8 +57,8 @@ sdk.updateWithS3( sampleInput )
 sdk.querySingleProduct('0000002')
 ```
 
-    CPU times: user 13.7 ms, sys: 0 ns, total: 13.7 ms
-    Wall time: 64.3 ms
+    CPU times: user 14.4 ms, sys: 0 ns, total: 14.4 ms
+    Wall time: 2.05 s
 
 
 
@@ -73,21 +73,62 @@ sdk.querySingleProduct('0000002')
 ## Query Branch
 
 ```python
+%%time
 result = sdk.queryBranch('1000')
 #showing the first 2 result
 list(iter(result.items()))[:2]
 ```
 
-
-    ---------------------------------------------------------------------------
-
-    AttributeError                            Traceback (most recent call last)
-
-    <ipython-input-30-c8acf849e3da> in <module>
-    ----> 1 result = sdk.queryBranch('1000')
-          2 #showing the first 2 result
-          3 list(iter(result.items()))[:2]
+    CPU times: user 271 ms, sys: 12.6 ms, total: 283 ms
+    Wall time: 507 ms
 
 
-    AttributeError: 'InventorySdk' object has no attribute 'queryBranch'
+
+
+
+    [('0000009',
+      {'ib_cf_qty': 50,
+       'new_ib_bs_stock_cv': 27,
+       'lastUpdate': 1602338504.869655}),
+     ('0000002',
+      {'ib_cf_qty': 35,
+       'new_ib_bs_stock_cv': 33,
+       'lastUpdate': 1600567810.529301})]
+
+
+
+## Query All
+
+```python
+%%time
+result = sdk.queryAll()
+list(iter(result.items()))[:2]
+```
+
+    CPU times: user 1.63 s, sys: 48.7 ms, total: 1.67 s
+    Wall time: 1.96 s
+
+
+
+
+
+    [('0000009',
+      {'ib_prcode': '0000009',
+       '1000': {'ib_cf_qty': 50,
+        'new_ib_bs_stock_cv': 27,
+        'lastUpdate': 1602338504.869655},
+       'lastUpdate': 1602338504.869655}),
+     ('0000002',
+      {'ib_prcode': '0000002',
+       '1000': {'ib_cf_qty': 35,
+        'new_ib_bs_stock_cv': 33,
+        'lastUpdate': 1600567810.529301},
+       '1001': {'ib_cf_qty': 32,
+        'new_ib_bs_stock_cv': 30,
+        'lastUpdate': 1600567810.529316},
+       '1002': {'ib_cf_qty': 34,
+        'new_ib_bs_stock_cv': 30,
+        'lastUpdate': 1600567810.529318},
+       'lastUpdate': 1600567810.529318})]
+
 
