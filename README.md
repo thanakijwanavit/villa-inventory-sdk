@@ -12,7 +12,7 @@ Uploading a large amount of data
 
 ## sample input
 
-```python
+```
 sampleInput = [ 
   {'ib_brcode': '1023', 'ib_cf_qty': '835', 'ib_prcode': '84621', 'new_ib_vs_stock_cv': '839'},
   {'ib_brcode': '1022', 'ib_cf_qty': '24', 'ib_prcode': '12424', 'new_ib_vs_stock_cv': '21'}
@@ -23,7 +23,7 @@ sampleInput = [
 
 ## init sdk
 
-```python
+```
 %%time
 sdk = InventorySdk(user=USER, pw=PW, branchName = branch)
 ```
@@ -34,7 +34,7 @@ sdk = InventorySdk(user=USER, pw=PW, branchName = branch)
 
 ## Update inventory 
 
-```python
+```
 %%time
 sdk.updateWithS3( sampleInput )
 ```
@@ -52,7 +52,7 @@ sdk.updateWithS3( sampleInput )
 
 ## Query single product
 
-```python
+```
 %%time
 sdk.querySingleProduct('0000002')
 ```
@@ -72,7 +72,7 @@ sdk.querySingleProduct('0000002')
 
 ## Query Branch
 
-```python
+```
 %%time
 result = sdk.queryBranch('1000')
 #showing the first 2 result
@@ -99,7 +99,7 @@ list(iter(result.items()))[:2]
 
 ## Query All
 
-```python
+```
 %%time
 result = sdk.queryAll()
 list(iter(result.items()))[:2]
