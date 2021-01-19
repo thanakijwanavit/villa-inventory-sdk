@@ -13,8 +13,8 @@ index = {"union": "inventory.ipynb",
 
 modules = ["inventory.py"]
 
-doc_url = "https://nic.github.io/villaInventorySdk/"
+doc_url = "https://thanakijwanavit.github.io/villaInventorySdk/"
 
-git_url = "https://github.com/nic/villaInventorySdk/tree/master/"
+git_url = "https://github.com/thanakijwanavit/villaInventorySdk/tree/master/"
 
 def custom_doc_links(name): return None

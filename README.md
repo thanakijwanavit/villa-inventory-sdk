@@ -2,6 +2,8 @@
 
 
 
+full docs here https://thanakijwanavit.github.io/villa-inventory-sdk/
+
 ## Install
 
 `pip install villaInventorySdk`
