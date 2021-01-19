@@ -6,8 +6,8 @@ title: villaInventorySdk
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "read and write inventory in real time"
-description: "read and write inventory in real time"
+
+
 nb_path: "index.ipynb"
 ---
 <!--
@@ -114,7 +114,7 @@ nb_path: "index.ipynb"
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 28.5 ms, sys: 12 ms, total: 40.4 ms
+<pre>CPU times: user 36.6 ms, sys: 4.73 ms, total: 41.3 ms
 Wall time: 1.05 s
 </pre>
 </div>
@@ -153,8 +153,8 @@ Wall time: 1.05 s
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 48.5 ms, sys: 7.17 ms, total: 55.7 ms
-Wall time: 173 ms
+<pre>CPU times: user 53.4 ms, sys: 2.56 ms, total: 55.9 ms
+Wall time: 322 ms
 </pre>
 </div>
 </div>
@@ -202,8 +202,8 @@ Wall time: 173 ms
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 14.4 ms, sys: 0 ns, total: 14.4 ms
-Wall time: 2.05 s
+<pre>CPU times: user 6.71 ms, sys: 7.73 ms, total: 14.4 ms
+Wall time: 83.5 ms
 </pre>
 </div>
 </div>
@@ -213,9 +213,23 @@ Wall time: 2.05 s
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;body&#39;: &#39;{&#34;ib_prcode&#34;:&#34;0000002&#34;,&#34;1000&#34;:{&#34;ib_cf_qty&#34;:35,&#34;new_ib_bs_stock_cv&#34;:33,&#34;lastUpdate&#34;:1600567810.529301},&#34;1001&#34;:{&#34;ib_cf_qty&#34;:32,&#34;new_ib_bs_stock_cv&#34;:30,&#34;lastUpdate&#34;:1600567810.529316},&#34;1002&#34;:{&#34;ib_cf_qty&#34;:34,&#34;new_ib_bs_stock_cv&#34;:30,&#34;lastUpdate&#34;:1600567810.529318},&#34;lastUpdate&#34;:1600567810.529318}&#39;,
- &#39;statusCode&#39;: 200,
- &#39;header&#39;: {}}</pre>
+<pre>{&#39;ib_prcode&#39;: &#39;0000002&#39;,
+ &#39;1000&#39;: {&#39;ib_cf_qty&#39;: 35,
+  &#39;new_ib_bs_stock_cv&#39;: 33,
+  &#39;lastUpdate&#39;: 1600567810.529301,
+  &#39;ib_prcode&#39;: &#39;0000002&#39;,
+  &#39;ib_brcode&#39;: &#39;1000&#39;},
+ &#39;1001&#39;: {&#39;ib_cf_qty&#39;: 32,
+  &#39;new_ib_bs_stock_cv&#39;: 30,
+  &#39;lastUpdate&#39;: 1600567810.529316,
+  &#39;ib_prcode&#39;: &#39;0000002&#39;,
+  &#39;ib_brcode&#39;: &#39;1001&#39;},
+ &#39;1002&#39;: {&#39;ib_cf_qty&#39;: 34,
+  &#39;new_ib_bs_stock_cv&#39;: 30,
+  &#39;lastUpdate&#39;: 1600567810.529318,
+  &#39;ib_prcode&#39;: &#39;0000002&#39;,
+  &#39;ib_brcode&#39;: &#39;1002&#39;},
+ &#39;lastUpdate&#39;: 1600567810.529318}</pre>
 </div>
 
 </div>
@@ -255,8 +269,8 @@ Wall time: 2.05 s
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 271 ms, sys: 12.6 ms, total: 283 ms
-Wall time: 507 ms
+<pre>CPU times: user 360 ms, sys: 28.1 ms, total: 388 ms
+Wall time: 600 ms
 </pre>
 </div>
 </div>
@@ -269,11 +283,15 @@ Wall time: 507 ms
 <pre>[(&#39;0000009&#39;,
   {&#39;ib_cf_qty&#39;: 50,
    &#39;new_ib_bs_stock_cv&#39;: 27,
-   &#39;lastUpdate&#39;: 1602338504.869655}),
+   &#39;lastUpdate&#39;: 1602338504.869655,
+   &#39;ib_prcode&#39;: &#39;0000009&#39;,
+   &#39;ib_brcode&#39;: &#39;1000&#39;}),
  (&#39;0000002&#39;,
   {&#39;ib_cf_qty&#39;: 35,
    &#39;new_ib_bs_stock_cv&#39;: 33,
-   &#39;lastUpdate&#39;: 1600567810.529301})]</pre>
+   &#39;lastUpdate&#39;: 1600567810.529301,
+   &#39;ib_prcode&#39;: &#39;0000002&#39;,
+   &#39;ib_brcode&#39;: &#39;1000&#39;})]</pre>
 </div>
 
 </div>
@@ -312,8 +330,8 @@ Wall time: 507 ms
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 1.63 s, sys: 48.7 ms, total: 1.67 s
-Wall time: 1.96 s
+<pre>CPU times: user 2.34 s, sys: 90.4 ms, total: 2.43 s
+Wall time: 2.77 s
 </pre>
 </div>
 </div>
@@ -327,19 +345,27 @@ Wall time: 1.96 s
   {&#39;ib_prcode&#39;: &#39;0000009&#39;,
    &#39;1000&#39;: {&#39;ib_cf_qty&#39;: 50,
     &#39;new_ib_bs_stock_cv&#39;: 27,
-    &#39;lastUpdate&#39;: 1602338504.869655},
+    &#39;lastUpdate&#39;: 1602338504.869655,
+    &#39;ib_prcode&#39;: &#39;0000009&#39;,
+    &#39;ib_brcode&#39;: &#39;1000&#39;},
    &#39;lastUpdate&#39;: 1602338504.869655}),
  (&#39;0000002&#39;,
   {&#39;ib_prcode&#39;: &#39;0000002&#39;,
    &#39;1000&#39;: {&#39;ib_cf_qty&#39;: 35,
     &#39;new_ib_bs_stock_cv&#39;: 33,
-    &#39;lastUpdate&#39;: 1600567810.529301},
+    &#39;lastUpdate&#39;: 1600567810.529301,
+    &#39;ib_prcode&#39;: &#39;0000002&#39;,
+    &#39;ib_brcode&#39;: &#39;1000&#39;},
    &#39;1001&#39;: {&#39;ib_cf_qty&#39;: 32,
     &#39;new_ib_bs_stock_cv&#39;: 30,
-    &#39;lastUpdate&#39;: 1600567810.529316},
+    &#39;lastUpdate&#39;: 1600567810.529316,
+    &#39;ib_prcode&#39;: &#39;0000002&#39;,
+    &#39;ib_brcode&#39;: &#39;1001&#39;},
    &#39;1002&#39;: {&#39;ib_cf_qty&#39;: 34,
     &#39;new_ib_bs_stock_cv&#39;: 30,
-    &#39;lastUpdate&#39;: 1600567810.529318},
+    &#39;lastUpdate&#39;: 1600567810.529318,
+    &#39;ib_prcode&#39;: &#39;0000002&#39;,
+    &#39;ib_brcode&#39;: &#39;1002&#39;},
    &#39;lastUpdate&#39;: 1600567810.529318})]</pre>
 </div>
 
