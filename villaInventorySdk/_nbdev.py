@@ -5,7 +5,11 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 index = {"union": "inventory.ipynb",
          "Endpoints": "inventory.ipynb",
          "InventorySdk": "inventory.ipynb",
-         "uploadDf": "inventory.ipynb"}
+         "uploadDf": "inventory.ipynb",
+         "ingestData": "inventory.ipynb",
+         "branchQuery": "inventory.ipynb",
+         "queryAll2": "inventory.ipynb",
+         "querySingleProduct2": "inventory.ipynb"}
 
 modules = ["inventory.py"]
 

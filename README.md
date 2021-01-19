@@ -12,149 +12,312 @@ Uploading a large amount of data
 
 ## sample input
 
+```python
+from villaInventorySdk.inventory import InventorySdk
+from random import randrange
+import boto3, time, json
+from dataclasses import dataclass
+from dataclasses_json import dataclass_json
+from datetime import datetime
+import pandas as pd
+from nicHelper.dictUtil import printDict
 ```
-sampleInput = [ 
-  {'ib_brcode': '1023', 'ib_cf_qty': '835', 'ib_prcode': '84621', 'new_ib_vs_stock_cv': '839'},
-  {'ib_brcode': '1022', 'ib_cf_qty': '24', 'ib_prcode': '12424', 'new_ib_vs_stock_cv': '21'}
-]
+
+```python
+sampleInput =  [ 
+  { 'cprcode': '0000009', 'brcode': '1000', 'ib_cf_qty': '50', 'new_ib_vs_stock_cv': '27' },
+  { 'cprcode': '0000004', 'brcode': '1000', 'ib_cf_qty': '35', 'new_ib_vs_stock_cv': '33' },
+  { 'cprcode': '0000003', 'brcode': '1003', 'ib_cf_qty': '36', 'new_ib_vs_stock_cv': '33' }
+    ]
+df = pd.DataFrame(sampleInput)
+df
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cprcode</th>
+      <th>brcode</th>
+      <th>ib_cf_qty</th>
+      <th>new_ib_vs_stock_cv</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0000009</td>
+      <td>1000</td>
+      <td>50</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0000004</td>
+      <td>1000</td>
+      <td>35</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0000003</td>
+      <td>1003</td>
+      <td>36</td>
+      <td>33</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 ## Upload data
 
 ## init sdk
 
-```
+```python
 %%time
+USER=None
+PW = None
 sdk = InventorySdk(user=USER, pw=PW, branchName = branch)
 ```
 
-    CPU times: user 36.6 ms, sys: 4.73 ms, total: 41.3 ms
-    Wall time: 1.05 s
+    CPU times: user 33.2 ms, sys: 6.92 ms, total: 40.1 ms
+    Wall time: 39.2 ms
 
 
 ## Update inventory 
 
-```
+```python
 %%time
-sdk.updateWithS3( sampleInput )
+key = 'test'
+r = sdk.uploadDf(df, key = key)
+if r.status_code >= 400: raise Exception(r.json())
+sdk.ingestData(key = key)
 ```
 
-    CPU times: user 53.4 ms, sys: 2.56 ms, total: 55.9 ms
-    Wall time: 322 ms
+    signed url is 
+    url : https://in
+    fields
+     key : test
+     AWSAccessKeyId : ASIAVX4Z5T
+     x-amz-security-token : IQoJb3JpZ2
+     policy : eyJleHBpcm
+     signature : bx6qL+1QUg
+    CPU times: user 61 ms, sys: 0 ns, total: 61 ms
+    Wall time: 520 ms
 
 
 
 
 
-    {'body': 'true', 'statusCode': 200, 'header': {}}
+    {'body': '{}',
+     'statusCode': 200,
+     'headers': {'Access-Control-Allow-Headers': '*',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': '*'}}
 
 
 
 ## Query single product
 
-```
+```python
 %%time
-sdk.querySingleProduct('0000002')
+sdk.querySingleProduct2(cprcode='1234')
 ```
 
-    CPU times: user 6.71 ms, sys: 7.73 ms, total: 14.4 ms
-    Wall time: 83.5 ms
+    succesfully get url, returning pandas
+    CPU times: user 19.8 ms, sys: 0 ns, total: 19.8 ms
+    Wall time: 332 ms
 
 
 
 
 
-    {'ib_prcode': '0000002',
-     '1000': {'ib_cf_qty': 35,
-      'new_ib_bs_stock_cv': 33,
-      'lastUpdate': 1600567810.529301,
-      'ib_prcode': '0000002',
-      'ib_brcode': '1000'},
-     '1001': {'ib_cf_qty': 32,
-      'new_ib_bs_stock_cv': 30,
-      'lastUpdate': 1600567810.529316,
-      'ib_prcode': '0000002',
-      'ib_brcode': '1001'},
-     '1002': {'ib_cf_qty': 34,
-      'new_ib_bs_stock_cv': 30,
-      'lastUpdate': 1600567810.529318,
-      'ib_prcode': '0000002',
-      'ib_brcode': '1002'},
-     'lastUpdate': 1600567810.529318}
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cprcode</th>
+      <th>brcode</th>
+      <th>ib_cf_qty</th>
+      <th>new_ib_vs_stock_cv</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1234</td>
+      <td>test</td>
+      <td>123</td>
+      <td>123</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
 
 ## Query Branch
 
-```
+```python
 %%time
-result = sdk.queryBranch('1000')
-#showing the first 2 result
-list(iter(result.items()))[:2]
+sdk.branchQuery(brcode='1000', cprcodes = ['0000009'])
 ```
 
-    CPU times: user 360 ms, sys: 28.1 ms, total: 388 ms
-    Wall time: 600 ms
+    CPU times: user 16.5 ms, sys: 70 µs, total: 16.6 ms
+    Wall time: 225 ms
 
 
 
 
 
-    [('0000009',
-      {'ib_cf_qty': 50,
-       'new_ib_bs_stock_cv': 27,
-       'lastUpdate': 1602338504.869655,
-       'ib_prcode': '0000009',
-       'ib_brcode': '1000'}),
-     ('0000002',
-      {'ib_cf_qty': 35,
-       'new_ib_bs_stock_cv': 33,
-       'lastUpdate': 1600567810.529301,
-       'ib_prcode': '0000002',
-       'ib_brcode': '1000'})]
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cprcode</th>
+      <th>brcode</th>
+      <th>ib_cf_qty</th>
+      <th>new_ib_vs_stock_cv</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0000009</td>
+      <td>1000</td>
+      <td>50</td>
+      <td>27</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
 
 ## Query All
 
-```
+```python
 %%time
-result = sdk.queryAll()
-list(iter(result.items()))[:2]
+sdk.queryAll2()
 ```
 
-    CPU times: user 2.34 s, sys: 90.4 ms, total: 2.43 s
-    Wall time: 2.77 s
+    succesfully get url, returning pandas
+    CPU times: user 13.6 ms, sys: 3.08 ms, total: 16.7 ms
+    Wall time: 323 ms
 
 
 
 
 
-    [('0000009',
-      {'ib_prcode': '0000009',
-       '1000': {'ib_cf_qty': 50,
-        'new_ib_bs_stock_cv': 27,
-        'lastUpdate': 1602338504.869655,
-        'ib_prcode': '0000009',
-        'ib_brcode': '1000'},
-       'lastUpdate': 1602338504.869655}),
-     ('0000002',
-      {'ib_prcode': '0000002',
-       '1000': {'ib_cf_qty': 35,
-        'new_ib_bs_stock_cv': 33,
-        'lastUpdate': 1600567810.529301,
-        'ib_prcode': '0000002',
-        'ib_brcode': '1000'},
-       '1001': {'ib_cf_qty': 32,
-        'new_ib_bs_stock_cv': 30,
-        'lastUpdate': 1600567810.529316,
-        'ib_prcode': '0000002',
-        'ib_brcode': '1001'},
-       '1002': {'ib_cf_qty': 34,
-        'new_ib_bs_stock_cv': 30,
-        'lastUpdate': 1600567810.529318,
-        'ib_prcode': '0000002',
-        'ib_brcode': '1002'},
-       'lastUpdate': 1600567810.529318})]
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cprcode</th>
+      <th>brcode</th>
+      <th>ib_cf_qty</th>
+      <th>new_ib_vs_stock_cv</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1234</td>
+      <td>test</td>
+      <td>123</td>
+      <td>123</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>12345</td>
+      <td>test</td>
+      <td>345</td>
+      <td>345</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0000009</td>
+      <td>1000</td>
+      <td>50</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0000004</td>
+      <td>1000</td>
+      <td>35</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0000003</td>
+      <td>1003</td>
+      <td>36</td>
+      <td>33</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
