@@ -13,6 +13,7 @@ import pandas as pd
 from nicHelper.wrappers import add_class_method, add_method
 from nicHelper.dictUtil import printDict
 from io import BytesIO
+from typing import List
 import bz2, json, boto3, base64, logging, itertools , requests
 
 # Cell
@@ -142,14 +143,16 @@ def ingestData(self, functionName= 'trigger-ingestion-dev-manual', key='1000', d
 
 # Cell
 @add_method(InventorySdk)
-def branchQuery(self, brcode:str, cprcodes:list=[])->pd.DataFrame:
+def branchQuery(self, brcode:str, cprcodes:List[int]=[])->pd.DataFrame:
   lambda_: Lambda =self.lambdaClient
   payload = Event.getInput({
     'brcode': brcode,
-    'cprcodes': cprcodes,
+    'cprcodes': [int(i) for i in cprcodes],
     'format' : 'feather'
   })
   rawReturn = lambda_.invoke(functionName=self.endpoint.queryBranch(), input = payload)
+  if rawReturn.get('errorMessage'):
+    raise Exception(rawReturn)
   parsedReturn = Response.parseBody(rawReturn)
   return pd.read_feather(parsedReturn['url'])
 
