@@ -2,14 +2,14 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"union": "inventory.ipynb",
-         "Endpoints": "inventory.ipynb",
-         "InventorySdk": "inventory.ipynb",
-         "uploadDf": "inventory.ipynb",
-         "ingestData": "inventory.ipynb",
-         "branchQuery": "inventory.ipynb",
-         "queryAll2": "inventory.ipynb",
-         "querySingleProduct2": "inventory.ipynb"}
+index = {"union": "price.ipynb",
+         "Endpoints": "price.ipynb",
+         "InventorySdk": "price.ipynb",
+         "uploadDf": "price.ipynb",
+         "ingestData": "price.ipynb",
+         "branchQuery": "price.ipynb",
+         "queryAll2": "price.ipynb",
+         "querySingleProduct2": "price.ipynb"}
 
 modules = ["inventory.py"]
 

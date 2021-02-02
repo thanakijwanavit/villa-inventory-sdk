@@ -1,6 +1,7 @@
 {
   "villaInventorySdk": {
     "Overview": "/",
-    "Inventory": "inventory.html"
+    "Inventory": "inventory.html",
+    "price": "price.html"
   }
 }

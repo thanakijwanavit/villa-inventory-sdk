@@ -14,7 +14,7 @@ Uploading a large amount of data
 
 ## sample input
 
-```python
+```
 from villaInventorySdk.inventory import InventorySdk
 from random import randrange
 import boto3, time, json
@@ -25,7 +25,7 @@ import pandas as pd
 from nicHelper.dictUtil import printDict
 ```
 
-```python
+```
 sampleInput =  [ 
   { 'cprcode': '0000009', 'brcode': '1000', 'ib_cf_qty': '50', 'new_ib_vs_stock_cv': '27' },
   { 'cprcode': '0000004', 'brcode': '1000', 'ib_cf_qty': '35', 'new_ib_vs_stock_cv': '33' },
@@ -94,7 +94,7 @@ df
 
 ## init sdk
 
-```python
+```
 %%time
 USER=None
 PW = None
@@ -107,7 +107,7 @@ sdk = InventorySdk(user=USER, pw=PW, branchName = branch)
 
 ## Update inventory 
 
-```python
+```
 %%time
 key = 'test'
 r = sdk.uploadDf(df, key = key)
@@ -140,7 +140,7 @@ sdk.ingestData(key = key)
 
 #### test uploading full data 
 
-```python
+```
 #### test uploading real data 
 df = pd.read_csv('sampleData/inventory.csv', index_col=0, dtype=str).reset_index(drop=True)
 r = sdk.uploadDf(df, key = key)
@@ -171,7 +171,7 @@ sdk.ingestData(key = key)
 
 ## Query single product
 
-```python
+```
 %%time
 sdk.querySingleProduct2(cprcode='1234')
 ```
@@ -224,7 +224,7 @@ sdk.querySingleProduct2(cprcode='1234')
 
 ## Query Branch
 
-```python
+```
 %%time
 sdk.branchQuery(brcode='1000', cprcodes = [9])
 ```
@@ -283,7 +283,7 @@ sdk.branchQuery(brcode='1000', cprcodes = [9])
 
 ## Query All
 
-```python
+```
 %%time
 sdk.queryAll2()
 ```
