@@ -11,7 +11,8 @@ index = {"union": "price.ipynb",
          "queryAll2": "price.ipynb",
          "querySingleProduct2": "price.ipynb"}
 
-modules = ["inventory.py"]
+modules = ["inventory.py",
+           "price.py"]
 
 doc_url = "https://thanakijwanavit.github.io/villaInventorySdk/"
 

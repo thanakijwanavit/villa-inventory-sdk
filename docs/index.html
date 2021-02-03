@@ -100,9 +100,9 @@ nb_path: "index.ipynb"
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sampleInput</span> <span class="o">=</span>  <span class="p">[</span> 
-  <span class="p">{</span> <span class="s1">&#39;cprcode&#39;</span><span class="p">:</span> <span class="s1">&#39;0000009&#39;</span><span class="p">,</span> <span class="s1">&#39;brcode&#39;</span><span class="p">:</span> <span class="s1">&#39;1000&#39;</span><span class="p">,</span> <span class="s1">&#39;ib_cf_qty&#39;</span><span class="p">:</span> <span class="s1">&#39;50&#39;</span><span class="p">,</span> <span class="s1">&#39;new_ib_vs_stock_cv&#39;</span><span class="p">:</span> <span class="s1">&#39;27&#39;</span> <span class="p">},</span>
-  <span class="p">{</span> <span class="s1">&#39;cprcode&#39;</span><span class="p">:</span> <span class="s1">&#39;0000004&#39;</span><span class="p">,</span> <span class="s1">&#39;brcode&#39;</span><span class="p">:</span> <span class="s1">&#39;1000&#39;</span><span class="p">,</span> <span class="s1">&#39;ib_cf_qty&#39;</span><span class="p">:</span> <span class="s1">&#39;35&#39;</span><span class="p">,</span> <span class="s1">&#39;new_ib_vs_stock_cv&#39;</span><span class="p">:</span> <span class="s1">&#39;33&#39;</span> <span class="p">},</span>
-  <span class="p">{</span> <span class="s1">&#39;cprcode&#39;</span><span class="p">:</span> <span class="s1">&#39;0000003&#39;</span><span class="p">,</span> <span class="s1">&#39;brcode&#39;</span><span class="p">:</span> <span class="s1">&#39;1003&#39;</span><span class="p">,</span> <span class="s1">&#39;ib_cf_qty&#39;</span><span class="p">:</span> <span class="s1">&#39;36&#39;</span><span class="p">,</span> <span class="s1">&#39;new_ib_vs_stock_cv&#39;</span><span class="p">:</span> <span class="s1">&#39;33&#39;</span> <span class="p">}</span>
+  <span class="p">{</span> <span class="s1">&#39;iprcode&#39;</span><span class="p">:</span> <span class="s1">&#39;0000009&#39;</span><span class="p">,</span> <span class="s1">&#39;brcode&#39;</span><span class="p">:</span> <span class="s1">&#39;1000&#39;</span><span class="p">,</span> <span class="s1">&#39;ib_cf_qty&#39;</span><span class="p">:</span> <span class="s1">&#39;50&#39;</span><span class="p">,</span> <span class="s1">&#39;new_ib_vs_stock_cv&#39;</span><span class="p">:</span> <span class="s1">&#39;27&#39;</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="s1">&#39;iprcode&#39;</span><span class="p">:</span> <span class="s1">&#39;0000004&#39;</span><span class="p">,</span> <span class="s1">&#39;brcode&#39;</span><span class="p">:</span> <span class="s1">&#39;1000&#39;</span><span class="p">,</span> <span class="s1">&#39;ib_cf_qty&#39;</span><span class="p">:</span> <span class="s1">&#39;35&#39;</span><span class="p">,</span> <span class="s1">&#39;new_ib_vs_stock_cv&#39;</span><span class="p">:</span> <span class="s1">&#39;33&#39;</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="s1">&#39;iprcode&#39;</span><span class="p">:</span> <span class="s1">&#39;0000003&#39;</span><span class="p">,</span> <span class="s1">&#39;brcode&#39;</span><span class="p">:</span> <span class="s1">&#39;1003&#39;</span><span class="p">,</span> <span class="s1">&#39;ib_cf_qty&#39;</span><span class="p">:</span> <span class="s1">&#39;36&#39;</span><span class="p">,</span> <span class="s1">&#39;new_ib_vs_stock_cv&#39;</span><span class="p">:</span> <span class="s1">&#39;33&#39;</span> <span class="p">}</span>
     <span class="p">]</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sampleInput</span><span class="p">)</span>
 <span class="n">df</span>
@@ -137,7 +137,7 @@ nb_path: "index.ipynb"
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>cprcode</th>
+      <th>iprcode</th>
       <th>brcode</th>
       <th>ib_cf_qty</th>
       <th>new_ib_vs_stock_cv</th>
@@ -213,8 +213,8 @@ nb_path: "index.ipynb"
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 36.2 ms, sys: 4.05 ms, total: 40.2 ms
-Wall time: 39.8 ms
+<pre>CPU times: user 34.2 ms, sys: 7.54 ms, total: 41.8 ms
+Wall time: 40.8 ms
 </pre>
 </div>
 </div>
@@ -262,9 +262,9 @@ fields
  AWSAccessKeyId : ASIAVX4Z5T
  x-amz-security-token : IQoJb3JpZ2
  policy : eyJleHBpcm
- signature : JhA/noZmLG
-CPU times: user 58.8 ms, sys: 1.44 ms, total: 60.2 ms
-Wall time: 574 ms
+ signature : apy2TqqnY2
+CPU times: user 54.7 ms, sys: 12.3 ms, total: 67 ms
+Wall time: 628 ms
 </pre>
 </div>
 </div>
@@ -274,7 +274,7 @@ Wall time: 574 ms
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;body&#39;: &#39;{&#34;cprcode&#34;:{&#34;0&#34;:&#34;0000009&#34;,&#34;1&#34;:&#34;0000004&#34;,&#34;2&#34;:&#34;0000003&#34;},&#34;brcode&#34;:{&#34;0&#34;:&#34;1000&#34;,&#34;1&#34;:&#34;1000&#34;,&#34;2&#34;:&#34;1003&#34;},&#34;ib_cf_qty&#34;:{&#34;0&#34;:&#34;50&#34;,&#34;1&#34;:&#34;35&#34;,&#34;2&#34;:&#34;36&#34;},&#34;new_ib_vs_stock_cv&#34;:{&#34;0&#34;:&#34;27&#34;,&#34;1&#34;:&#34;33&#34;,&#34;2&#34;:&#34;33&#34;}}&#39;,
+<pre>{&#39;body&#39;: &#39;{&#34;iprcode&#34;:{&#34;0&#34;:&#34;0000009&#34;,&#34;1&#34;:&#34;0000004&#34;,&#34;2&#34;:&#34;0000003&#34;},&#34;brcode&#34;:{&#34;0&#34;:&#34;1000&#34;,&#34;1&#34;:&#34;1000&#34;,&#34;2&#34;:&#34;1003&#34;},&#34;ib_cf_qty&#34;:{&#34;0&#34;:&#34;50&#34;,&#34;1&#34;:&#34;35&#34;,&#34;2&#34;:&#34;36&#34;},&#34;new_ib_vs_stock_cv&#34;:{&#34;0&#34;:&#34;27&#34;,&#34;1&#34;:&#34;33&#34;,&#34;2&#34;:&#34;33&#34;}}&#39;,
  &#39;statusCode&#39;: 200,
  &#39;headers&#39;: {&#39;Access-Control-Allow-Headers&#39;: &#39;*&#39;,
   &#39;Access-Control-Allow-Origin&#39;: &#39;*&#39;,
@@ -302,48 +302,13 @@ Wall time: 574 ms
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;sampleData/inventory.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">sdk</span><span class="o">.</span><span class="n">uploadDf</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="n">key</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&gt;=</span> <span class="mi">400</span><span class="p">:</span> <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
-<span class="n">sdk</span><span class="o">.</span><span class="n">ingestData</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="n">key</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># df = pd.read_csv(&#39;sampleData/inventory.csv&#39;, index_col=0, dtype=str).reset_index(drop=True)</span>
+<span class="c1"># r = sdk.uploadDf(df, key = key)</span>
+<span class="c1"># if r.status_code &gt;= 400: raise Exception(r.json())</span>
+<span class="c1"># sdk.ingestData(key = key)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>signed url is 
-url : https://in
-fields
- key : test
- AWSAccessKeyId : ASIAVX4Z5T
- x-amz-security-token : IQoJb3JpZ2
- policy : eyJleHBpcm
- signature : 7846JjbAR+
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{&#39;body&#39;: &#39;{&#34;cprcode&#34;:{&#34;0&#34;:&#34;0000009&#34;,&#34;1&#34;:&#34;0000012&#34;,&#34;2&#34;:&#34;0000026&#34;,&#34;3&#34;:&#34;0000028&#34;,&#34;4&#34;:&#34;0000033&#34;},&#34;brcode&#34;:{&#34;0&#34;:&#34;1000&#34;,&#34;1&#34;:&#34;1000&#34;,&#34;2&#34;:&#34;1000&#34;,&#34;3&#34;:&#34;1000&#34;,&#34;4&#34;:&#34;1000&#34;},&#34;ib_cf_qty&#34;:{&#34;0&#34;:&#34;39&#34;,&#34;1&#34;:&#34;39&#34;,&#34;2&#34;:&#34;9&#34;,&#34;3&#34;:&#34;13&#34;,&#34;4&#34;:&#34;7&#34;},&#34;new_ib_vs_stock_cv&#34;:{&#34;0&#34;:&#34;39&#34;,&#34;1&#34;:&#34;39&#34;,&#34;2&#34;:&#34;9&#34;,&#34;3&#34;:&#34;13&#34;,&#34;4&#34;:&#34;7&#34;}}&#39;,
- &#39;statusCode&#39;: 200,
- &#39;headers&#39;: {&#39;Access-Control-Allow-Headers&#39;: &#39;*&#39;,
-  &#39;Access-Control-Allow-Origin&#39;: &#39;*&#39;,
-  &#39;Access-Control-Allow-Methods&#39;: &#39;*&#39;}}</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -364,7 +329,7 @@ fields
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">sdk</span><span class="o">.</span><span class="n">querySingleProduct2</span><span class="p">(</span><span class="n">cprcode</span><span class="o">=</span><span class="s1">&#39;1234&#39;</span><span class="p">)</span>
+<span class="n">sdk</span><span class="o">.</span><span class="n">querySingleProduct2</span><span class="p">(</span><span class="n">iprcode</span><span class="o">=</span><span class="s1">&#39;1234&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -378,8 +343,8 @@ fields
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>succesfully get url, returning pandas
-CPU times: user 33.8 ms, sys: 9.14 ms, total: 42.9 ms
-Wall time: 3 s
+CPU times: user 103 ms, sys: 12.6 ms, total: 116 ms
+Wall time: 799 ms
 </pre>
 </div>
 </div>
@@ -406,20 +371,13 @@ Wall time: 3 s
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>cprcode</th>
+      <th>iprcode</th>
       <th>brcode</th>
       <th>ib_cf_qty</th>
       <th>new_ib_vs_stock_cv</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th>0</th>
-      <td>1234</td>
-      <td>test</td>
-      <td>123</td>
-      <td>123</td>
-    </tr>
   </tbody>
 </table>
 </div>
@@ -447,7 +405,7 @@ Wall time: 3 s
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">sdk</span><span class="o">.</span><span class="n">branchQuery</span><span class="p">(</span><span class="n">brcode</span><span class="o">=</span><span class="s1">&#39;1000&#39;</span><span class="p">,</span> <span class="n">cprcodes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9</span><span class="p">])</span>
+<span class="n">sdk</span><span class="o">.</span><span class="n">branchQuery</span><span class="p">(</span><span class="n">brcode</span><span class="o">=</span><span class="s1">&#39;1000&#39;</span><span class="p">,</span> <span class="n">iprcodes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -459,61 +417,21 @@ Wall time: 3 s
 
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 15.3 ms, sys: 1.2 ms, total: 16.5 ms
-Wall time: 231 ms
-</pre>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;timed eval&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+
+<span class="ansi-green-fg">~/SageMaker/.persisted_conda/python38/lib/python3.8/site-packages/nicHelper/wrappers.py</span> in <span class="ansi-cyan-fg">wrapper</span><span class="ansi-blue-fg">(self, *args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">     12</span>         <span class="ansi-blue-fg">@</span>wraps<span class="ansi-blue-fg">(</span>func<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     13</span>         <span class="ansi-green-fg">def</span> wrapper<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 14</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> func<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     15</span>         setattr<span class="ansi-blue-fg">(</span>cls<span class="ansi-blue-fg">,</span> func<span class="ansi-blue-fg">.</span>__name__<span class="ansi-blue-fg">,</span> wrapper<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     16</span>         <span class="ansi-red-fg"># Note we are not binding func, but wrapper which accepts self but does exactly the same as func</span>
+
+<span class="ansi-red-fg">TypeError</span>: branchQuery() got an unexpected keyword argument &#39;iprcodes&#39;</pre>
 </div>
-</div>
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>cprcode</th>
-      <th>brcode</th>
-      <th>ib_cf_qty</th>
-      <th>new_ib_vs_stock_cv</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>9</td>
-      <td>1000</td>
-      <td>50</td>
-      <td>27</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>9</td>
-      <td>1000</td>
-      <td>50</td>
-      <td>27</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
 </div>
 
 </div>
@@ -550,8 +468,8 @@ Wall time: 231 ms
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>succesfully get url, returning pandas
-CPU times: user 21.4 ms, sys: 15.7 ms, total: 37.1 ms
-Wall time: 420 ms
+CPU times: user 76.2 ms, sys: 24.1 ms, total: 100 ms
+Wall time: 673 ms
 </pre>
 </div>
 </div>
@@ -578,7 +496,7 @@ Wall time: 420 ms
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>cprcode</th>
+      <th>iprcode</th>
       <th>brcode</th>
       <th>ib_cf_qty</th>
       <th>new_ib_vs_stock_cv</th>
@@ -587,38 +505,38 @@ Wall time: 420 ms
   <tbody>
     <tr>
       <th>0</th>
-      <td>1234</td>
-      <td>test</td>
-      <td>123</td>
-      <td>123</td>
+      <td>4</td>
+      <td>1000</td>
+      <td>35</td>
+      <td>33</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>12345</td>
-      <td>test</td>
-      <td>345</td>
-      <td>345</td>
+      <td>9</td>
+      <td>1000</td>
+      <td>95</td>
+      <td>95</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>4</td>
+      <td>12</td>
       <td>1000</td>
-      <td>35</td>
-      <td>33</td>
+      <td>36</td>
+      <td>36</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>4</td>
+      <td>26</td>
       <td>1000</td>
-      <td>35</td>
-      <td>33</td>
+      <td>28</td>
+      <td>28</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>9</td>
+      <td>28</td>
       <td>1000</td>
-      <td>50</td>
-      <td>27</td>
+      <td>9</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>...</th>
@@ -628,35 +546,35 @@ Wall time: 420 ms
       <td>...</td>
     </tr>
     <tr>
-      <th>46978</th>
-      <td>244590</td>
+      <th>81551</th>
+      <td>244818</td>
       <td>1000</td>
       <td>0</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>46979</th>
-      <td>244591</td>
+      <th>81552</th>
+      <td>244820</td>
       <td>1000</td>
       <td>0</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>46980</th>
-      <td>244592</td>
+      <th>81553</th>
+      <td>244822</td>
       <td>1000</td>
       <td>0</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>46981</th>
-      <td>3</td>
-      <td>1003</td>
-      <td>36</td>
-      <td>33</td>
+      <th>81554</th>
+      <td>244823</td>
+      <td>1000</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th>46982</th>
+      <th>81555</th>
       <td>3</td>
       <td>1003</td>
       <td>36</td>
@@ -664,7 +582,74 @@ Wall time: 420 ms
     </tr>
   </tbody>
 </table>
-<p>46983 rows × 4 columns</p>
+<p>81556 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sdk</span><span class="o">.</span><span class="n">querySingleProduct2</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>succesfully get url, returning pandas
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>iprcode</th>
+      <th>brcode</th>
+      <th>ib_cf_qty</th>
+      <th>new_ib_vs_stock_cv</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
 </div>
 </div>
 

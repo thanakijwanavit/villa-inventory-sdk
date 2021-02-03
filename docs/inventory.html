@@ -47,7 +47,7 @@ nb_path: "inventory.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="union" class="doc_header"><code>union</code><a href="https://github.com/thanakijwanavit/villaInventorySdk/tree/master/villaInventorySdk/inventory.py#L198" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>union</code>(<strong>*<code>dicts</code></strong>)</p>
+<h4 id="union" class="doc_header"><code>union</code><a href="https://github.com/thanakijwanavit/villaInventorySdk/tree/master/villaInventorySdk/inventory.py#L20" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>union</code>(<strong>*<code>dicts</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -71,7 +71,7 @@ nb_path: "inventory.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Endpoints" class="doc_header"><code>class</code> <code>Endpoints</code><a href="https://github.com/thanakijwanavit/villaInventorySdk/tree/master/villaInventorySdk/inventory.py#L23" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Endpoints</code>(<strong><code>branchName</code></strong>=<em><code>'manual-dev'</code></em>)</p>
+<h2 id="Endpoints" class="doc_header"><code>class</code> <code>Endpoints</code><a href="https://github.com/thanakijwanavit/villaInventorySdk/tree/master/villaInventorySdk/inventory.py#L22" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Endpoints</code>(<strong><code>branchName</code></strong>=<em><code>'manual-dev'</code></em>)</p>
 </blockquote>
 <p>get endpoint names from branch name</p>
 
@@ -96,7 +96,7 @@ nb_path: "inventory.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="InventorySdk" class="doc_header"><code>class</code> <code>InventorySdk</code><a href="https://github.com/thanakijwanavit/villaInventorySdk/tree/master/villaInventorySdk/inventory.py#L35" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>InventorySdk</code>(<strong><code>branchName</code></strong>=<em><code>'dev'</code></em>, <strong><code>user</code></strong>=<em><code>None</code></em>, <strong><code>pw</code></strong>=<em><code>None</code></em>, <strong><code>region</code></strong>=<em><code>'ap-southeast-1'</code></em>)</p>
+<h2 id="InventorySdk" class="doc_header"><code>class</code> <code>InventorySdk</code><a href="https://github.com/thanakijwanavit/villaInventorySdk/tree/master/villaInventorySdk/inventory.py#L34" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>InventorySdk</code>(<strong><code>branchName</code></strong>=<em><code>'dev'</code></em>, <strong><code>user</code></strong>=<em><code>None</code></em>, <strong><code>pw</code></strong>=<em><code>None</code></em>, <strong><code>region</code></strong>=<em><code>'ap-southeast-1'</code></em>)</p>
 </blockquote>
 <p>interact with villa inventory database</p>
 
@@ -157,14 +157,14 @@ nb_path: "inventory.ipynb"
 <span class="nd">@dataclass_json</span>
 <span class="nd">@dataclass</span>
 <span class="k">class</span> <span class="nc">Inventory</span><span class="p">:</span>
-  <span class="n">ib_prcode</span><span class="p">:</span><span class="nb">str</span>
-  <span class="n">ib_brcode</span><span class="p">:</span><span class="nb">str</span>
+  <span class="n">iprcode</span><span class="p">:</span><span class="nb">str</span>
+  <span class="n">brcode</span><span class="p">:</span><span class="nb">str</span>
   <span class="n">ib_cf_qty</span><span class="p">:</span><span class="nb">str</span>
   <span class="n">new_ib_vs_stock_cv</span><span class="p">:</span><span class="nb">str</span>
 
 <span class="n">sampleLargeRandomInput</span> <span class="o">=</span> <span class="p">[</span> <span class="n">Inventory</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span>
-    <span class="s1">&#39;ib_brcode&#39;</span> <span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1030</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span>
-    <span class="s1">&#39;ib_prcode&#39;</span> <span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">randrange</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span><span class="mi">100000</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span>
+    <span class="s1">&#39;brcode&#39;</span> <span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1030</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span>
+    <span class="s1">&#39;iprcode&#39;</span> <span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">randrange</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span><span class="mi">100000</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span>
     <span class="s1">&#39;ib_cf_qty&#39;</span> <span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">randrange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span>
     <span class="s1">&#39;new_ib_vs_stock_cv&#39;</span> <span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">randrange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
   <span class="p">})</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numberOfRows</span><span class="p">)]</span>
@@ -181,8 +181,8 @@ nb_path: "inventory.ipynb"
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 1.97 ms, sys: 0 ns, total: 1.97 ms
-Wall time: 1.98 ms
+<pre>CPU times: user 2.01 ms, sys: 0 ns, total: 2.01 ms
+Wall time: 2.02 ms
 </pre>
 </div>
 </div>
@@ -192,10 +192,10 @@ Wall time: 1.98 ms
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;ib_prcode&#39;: &#39;29753&#39;,
- &#39;ib_brcode&#39;: &#39;1029&#39;,
- &#39;ib_cf_qty&#39;: &#39;104&#39;,
- &#39;new_ib_vs_stock_cv&#39;: &#39;876&#39;}</pre>
+<pre>{&#39;iprcode&#39;: &#39;28959&#39;,
+ &#39;brcode&#39;: &#39;1021&#39;,
+ &#39;ib_cf_qty&#39;: &#39;915&#39;,
+ &#39;new_ib_vs_stock_cv&#39;: &#39;569&#39;}</pre>
 </div>
 
 </div>
@@ -363,7 +363,7 @@ Wall time: 1.98 ms
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="uploadDf" class="doc_header"><code>uploadDf</code><a href="https://github.com/thanakijwanavit/villaInventorySdk/tree/master/villaInventorySdk/inventory.py#L293" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>uploadDf</code>(<strong><code>df</code></strong>:<code>DataFrame</code>, <strong><code>key</code></strong>:<code>str</code>=<em><code>'1000'</code></em>, <strong><code>invApi</code></strong>:<code>str</code>=<em><code>'2y9nzxkuyk'</code></em>)</p>
+<h4 id="uploadDf" class="doc_header"><code>uploadDf</code><a href="https://github.com/thanakijwanavit/villaInventorySdk/tree/master/villaInventorySdk/inventory.py#L114" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>uploadDf</code>(<strong><code>df</code></strong>:<code>DataFrame</code>, <strong><code>key</code></strong>:<code>str</code>=<em><code>'1000'</code></em>, <strong><code>invApi</code></strong>:<code>str</code>=<em><code>'2y9nzxkuyk'</code></em>)</p>
 </blockquote>
 
 </div>
@@ -400,7 +400,7 @@ Wall time: 1.98 ms
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ingestData" class="doc_header"><code>ingestData</code><a href="https://github.com/thanakijwanavit/villaInventorySdk/tree/master/villaInventorySdk/inventory.py#L317" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ingestData</code>(<strong><code>functionName</code></strong>=<em><code>'trigger-ingestion-dev-manual'</code></em>, <strong><code>key</code></strong>=<em><code>'1000'</code></em>, <strong><code>dtype</code></strong>=<em><code>'feather'</code></em>)</p>
+<h4 id="ingestData" class="doc_header"><code>ingestData</code><a href="https://github.com/thanakijwanavit/villaInventorySdk/tree/master/villaInventorySdk/inventory.py#L138" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ingestData</code>(<strong><code>functionName</code></strong>=<em><code>'trigger-ingestion-dev-manual'</code></em>, <strong><code>key</code></strong>=<em><code>'1000'</code></em>, <strong><code>dtype</code></strong>=<em><code>'feather'</code></em>)</p>
 </blockquote>
 
 </div>
@@ -494,9 +494,9 @@ fields
  AWSAccessKeyId : ASIAVX4Z5T
  x-amz-security-token : IQoJb3JpZ2
  policy : eyJleHBpcm
- signature : sjg3Unz1l3
-CPU times: user 30.6 ms, sys: 247 µs, total: 30.9 ms
-Wall time: 517 ms
+ signature : h5NLiY4QHq
+CPU times: user 36.2 ms, sys: 0 ns, total: 36.2 ms
+Wall time: 615 ms
 </pre>
 </div>
 </div>
@@ -538,7 +538,7 @@ Wall time: 517 ms
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="branchQuery" class="doc_header"><code>branchQuery</code><a href="https://github.com/thanakijwanavit/villaInventorySdk/tree/master/villaInventorySdk/inventory.py#L324" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>branchQuery</code>(<strong><code>brcode</code></strong>:<code>str</code>, <strong><code>cprcodes</code></strong>:<code>List</code>[<code>int</code>]=<em><code>[]</code></em>)</p>
+<h4 id="branchQuery" class="doc_header"><code>branchQuery</code><a href="https://github.com/thanakijwanavit/villaInventorySdk/tree/master/villaInventorySdk/inventory.py#L145" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>branchQuery</code>(<strong><code>brcode</code></strong>:<code>str</code>, <strong><code>iprcodes</code></strong>:<code>List</code>[<code>int</code>]=<em><code>[]</code></em>)</p>
 </blockquote>
 
 </div>
@@ -572,126 +572,6 @@ Wall time: 517 ms
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>iprcode</th>
-      <th>brcode</th>
-      <th>ib_cf_qty</th>
-      <th>new_ib_vs_stock_cv</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>4</td>
-      <td>1000</td>
-      <td>35</td>
-      <td>33</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>9</td>
-      <td>1000</td>
-      <td>95</td>
-      <td>95</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>12</td>
-      <td>1000</td>
-      <td>36</td>
-      <td>36</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>26</td>
-      <td>1000</td>
-      <td>28</td>
-      <td>28</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>28</td>
-      <td>1000</td>
-      <td>9</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>81546</th>
-      <td>244801</td>
-      <td>1000</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>81547</th>
-      <td>244814</td>
-      <td>1000</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>81548</th>
-      <td>244816</td>
-      <td>1000</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>81549</th>
-      <td>244817</td>
-      <td>1000</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>81550</th>
-      <td>244818</td>
-      <td>1000</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-<p>81551 rows × 4 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
     {% endraw %}
 
@@ -712,7 +592,7 @@ Wall time: 517 ms
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="queryAll2" class="doc_header"><code>queryAll2</code><a href="https://github.com/thanakijwanavit/villaInventorySdk/tree/master/villaInventorySdk/inventory.py#L340" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>queryAll2</code>(<strong><code>format_</code></strong>=<em><code>'feather'</code></em>)</p>
+<h4 id="queryAll2" class="doc_header"><code>queryAll2</code><a href="https://github.com/thanakijwanavit/villaInventorySdk/tree/master/villaInventorySdk/inventory.py#L161" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>queryAll2</code>(<strong><code>format_</code></strong>=<em><code>'feather'</code></em>)</p>
 </blockquote>
 
 </div>
@@ -747,136 +627,6 @@ Wall time: 517 ms
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>succesfully get url, returning pandas
-CPU times: user 77.5 ms, sys: 13 ms, total: 90.5 ms
-Wall time: 652 ms
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>iprcode</th>
-      <th>brcode</th>
-      <th>ib_cf_qty</th>
-      <th>new_ib_vs_stock_cv</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>4</td>
-      <td>1000</td>
-      <td>35</td>
-      <td>33</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>9</td>
-      <td>1000</td>
-      <td>95</td>
-      <td>95</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>12</td>
-      <td>1000</td>
-      <td>36</td>
-      <td>36</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>26</td>
-      <td>1000</td>
-      <td>28</td>
-      <td>28</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>28</td>
-      <td>1000</td>
-      <td>9</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>81547</th>
-      <td>244814</td>
-      <td>1000</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>81548</th>
-      <td>244816</td>
-      <td>1000</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>81549</th>
-      <td>244817</td>
-      <td>1000</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>81550</th>
-      <td>244818</td>
-      <td>1000</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>81551</th>
-      <td>3</td>
-      <td>1003</td>
-      <td>36</td>
-      <td>33</td>
-    </tr>
-  </tbody>
-</table>
-<p>81552 rows × 4 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
     {% endraw %}
 
@@ -892,136 +642,6 @@ Wall time: 652 ms
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>succesfully get url, returning pandas
-CPU times: user 217 ms, sys: 12.6 ms, total: 230 ms
-Wall time: 910 ms
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>iprcode</th>
-      <th>brcode</th>
-      <th>ib_cf_qty</th>
-      <th>new_ib_vs_stock_cv</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>4</td>
-      <td>1000</td>
-      <td>35</td>
-      <td>33</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>9</td>
-      <td>1000</td>
-      <td>95</td>
-      <td>95</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>12</td>
-      <td>1000</td>
-      <td>36</td>
-      <td>36</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>26</td>
-      <td>1000</td>
-      <td>28</td>
-      <td>28</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>28</td>
-      <td>1000</td>
-      <td>9</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>81547</th>
-      <td>244814</td>
-      <td>1000</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>81548</th>
-      <td>244816</td>
-      <td>1000</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>81549</th>
-      <td>244817</td>
-      <td>1000</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>81550</th>
-      <td>244818</td>
-      <td>1000</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>81551</th>
-      <td>3</td>
-      <td>1003</td>
-      <td>36</td>
-      <td>33</td>
-    </tr>
-  </tbody>
-</table>
-<p>81552 rows × 4 columns</p>
-</div>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -1045,7 +665,7 @@ Wall time: 910 ms
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="querySingleProduct2" class="doc_header"><code>querySingleProduct2</code><a href="https://github.com/thanakijwanavit/villaInventorySdk/tree/master/villaInventorySdk/inventory.py#L356" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>querySingleProduct2</code>(<strong><code>cprcode</code></strong>=<em><code>'1234'</code></em>)</p>
+<h4 id="querySingleProduct2" class="doc_header"><code>querySingleProduct2</code><a href="https://github.com/thanakijwanavit/villaInventorySdk/tree/master/villaInventorySdk/inventory.py#L177" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>querySingleProduct2</code>(<strong><code>iprcode</code></strong>=<em><code>'1234'</code></em>)</p>
 </blockquote>
 
 </div>
@@ -1072,67 +692,10 @@ Wall time: 910 ms
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sdk</span><span class="o">.</span><span class="n">querySingleProduct2</span><span class="p">(</span><span class="mi">244814</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sdk</span><span class="o">.</span><span class="n">querySingleProduct2</span><span class="p">(</span><span class="n">iprcode</span> <span class="o">=</span> <span class="mi">244814</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>succesfully get url, returning pandas
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>iprcode</th>
-      <th>brcode</th>
-      <th>ib_cf_qty</th>
-      <th>new_ib_vs_stock_cv</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>81547</th>
-      <td>244814</td>
-      <td>1000</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
 </div>
 </div>
 
